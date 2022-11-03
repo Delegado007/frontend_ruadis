@@ -1,8 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getFiles } from "../api";
 
 const initialState = {
   files: [],
 }
+
+export const fetchFiles = createAsyncThunk(
+  'files/fetchFiles',
+  async (_, { dispatch }) => {
+    const filesRes = await getFiles();
+    console.log(filesRes)
+    dispatch(setFiles(filesRes))
+  }
+)
 
 export const filesSlice = createSlice({
   name: 'files',

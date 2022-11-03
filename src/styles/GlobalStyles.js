@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  ul, li, h1, h2, h3, p, button, input, textarea, label, span {
+  ul, li, h1, h2, h3, p, button, input, textarea, label, span, button {
     font-family: 'Lato';
     margin: 0;
     padding: 0;

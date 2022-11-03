@@ -11,7 +11,7 @@ export const ResizeContainerNav = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 1024px;
+  max-width: 1080px;
   height: 64PX;
   margin: 0 auto;
 `
@@ -96,7 +96,7 @@ export const ContainerUsuario = styled.div`
 `
 export const ContainerCategorias = styled.div`
   height: 30px;
-  max-width: 1024px;
+  max-width: 1080px;
   margin: 0 auto;
 `
 export const ListaMenu = styled.ul`
