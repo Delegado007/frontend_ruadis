@@ -1,4 +1,3 @@
-
 export const useFormatPrices = (num) => {
   if (num === "") return "";
   return new Intl.NumberFormat("es-AR", {

@@ -23,7 +23,6 @@ export const Card = ({ id, image, name, prices, pages }) => {
     console.log("ANDA")
   }
   let precioFormated = useFormatPrices(simple);
-
   return (
     <CardContainer>
       <ImgContainer>
@@ -43,12 +42,10 @@ export const Card = ({ id, image, name, prices, pages }) => {
           <span>OPCIONES DE IMPRESION</span>
         </ContainerOpciones>
         <ContainerDuplex>
-
           <Input type="checkbox" name="color_mode" id={`duplex_mode_${id}`} value="1" />
           <BottonSwitch htmlFor={`duplex_mode_${id}`} data-on="Doble faz" data-off="Simple faz"></BottonSwitch>
           <Input type="checkbox" name="color_mode" id={`anillado_mode_${id}`} value="1" />
           <BottonSwitch htmlFor={`anillado_mode_${id}`} data-on="Anillado" data-off="Sin anillar"></BottonSwitch>
-
         </ContainerDuplex>
         <ContainerEncargar>
           <ButtonRelative>

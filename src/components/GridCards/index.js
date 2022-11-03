@@ -5,7 +5,7 @@ import { useSelector, shallowEqual } from "react-redux";
 
 export const GridCard = () => {
   const files = useSelector((state) => state.files.files, shallowEqual);
-  console.log(`FILES DESDE APP ${files}`)
+
   return (
     <ContainerGrid>
       {files.map((item) => (
