@@ -3,6 +3,7 @@ import { getFiles } from "../api";
 
 const initialState = {
   files: [],
+  searchFiles: [],
 }
 
 export const fetchFiles = createAsyncThunk(
