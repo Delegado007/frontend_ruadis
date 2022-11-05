@@ -4,7 +4,8 @@ import { LogoSearch } from "../LogoSearch";
 import { LogoCarrito } from "../LogoCarrito";
 import { getWhitSearch } from "../../api";
 import { useDispatch, useSelector } from "react-redux";
-import { setFiles } from "../../slices/filesSlice";
+import { setFiles, setCount, setIsSearch, setValueInputSearch } from "../../slices/filesSlice";
+import { setPagination } from "../../slices/paginatioSlice";
 import {
   ContainerNav,
   ResizeContainerNav,
@@ -21,13 +22,20 @@ export const NavBarDesktop = () => {
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch()
   const handleSearch = async (e) => {
+    const initPagination = {
+      offset: 0,
+      limit: 12
+    }
     e.preventDefault()
     if (searchValue === undefined || searchValue === "") return true;
-    const searchResult = await getWhitSearch(searchValue);
-    dispatch(setFiles(searchResult))
-    console.log(searchResult)
+    console.log(initPagination.limit);
+    const searchResult = await getWhitSearch(searchValue, initPagination.offset, initPagination.limit);
+    dispatch(setFiles(searchResult.rows))
+    dispatch(setCount(searchResult.count))
+    dispatch(setPagination(initPagination))
+    dispatch(setIsSearch(true))
+    dispatch(setValueInputSearch(e.target[0].value))
   }
-  console.log(searchValue)
   return (
     <>
       <ContainerNav>

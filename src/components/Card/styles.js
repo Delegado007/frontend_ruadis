@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  height: 450px;
+  height: 457px;
   width: 320px;
   margin: 14px auto;
   background-color: white;
@@ -13,7 +13,7 @@ export const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 12px 5px 5px 5px;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid #f5f5f5;
   /* background-color: #4f4f54; */
