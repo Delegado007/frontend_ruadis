@@ -14,7 +14,26 @@ export const SearchForm = styled.div`
     height: 20px;
   }
   `
+export const Form = styled.form`
+  height: 100%;
+  width: 100%;
+  line-height: 1.5;
+`
 
+export const Input = styled.input`
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  padding-left: 35px;
+  padding-right: 80px;
+`
 
 export const ButtonSearch = styled.button`
 width: 70px;

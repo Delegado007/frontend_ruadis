@@ -180,7 +180,7 @@ export const ContainerEncargar = styled.div`
     left: 2px;
   }
   & div:nth-child(2) svg {
-    top: -13px;
+    top: 6px;
     left: 5px;
   }
   & label {

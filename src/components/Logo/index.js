@@ -2,11 +2,11 @@ import * as React from "react"
 
 export const Logo = () => (
   <svg
-    width={215}
-    height={60}
+    width={105}
+    height={22}
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    viewBox="77.925 9.2 344.15 131.6"
+    viewBox="209 51 80 51"
     style={{
       background: "0 0",
     }}

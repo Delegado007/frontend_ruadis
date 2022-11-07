@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "../Logo";
-import { Search } from "../Search";
+import { SearchInput } from "../Search";
 import { LogoCarrito } from "../LogoCarrito";
 
 import {
@@ -25,12 +25,14 @@ export const NavBarDesktop = () => {
           </Logotipo>
 
           <ContainerSearch>
-            <Search />
+            <SearchInput />
           </ContainerSearch>
           <ContainerUsuario>
             <button>Ingresa</button>
             <button>Registrate</button>
-            <LogoCarrito />
+            <button>
+              <LogoCarrito />
+            </button>
           </ContainerUsuario>
         </ResizeContainerNav>
         <ContainerCategorias>

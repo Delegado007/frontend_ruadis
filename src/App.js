@@ -5,6 +5,7 @@ import { Pagination } from "./components/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFiles } from "./slices/filesSlice";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import { NavBarPhone } from "./components/NavBarPhone";
 
 
 export const App = () => {
@@ -19,6 +20,7 @@ export const App = () => {
     <>
       <GlobalStyles />
       <div id="app">
+        <NavBarPhone />
         <NavBarDesktop />
         <GridCard />
         <Pagination />

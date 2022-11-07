@@ -6,6 +6,9 @@ export const ContainerNav = styled.div`
   background-color: #272729;
   height: 94px;
   color: white;
+  @media (max-width: 890px){
+    display: none;
+  }
   `
 export const ResizeContainerNav = styled.div`  
   display: flex;
@@ -18,7 +21,8 @@ export const ResizeContainerNav = styled.div`
 export const Logotipo = styled.div`
   display: flex;
   align-items: center;
-  width: 215px;
+  justify-content: center;
+  min-width: 215px;
   height: 100%;
 `
 
@@ -27,25 +31,6 @@ export const ContainerSearch = styled.div`
   display: flex;
   align-items: center;
   width: 540px;
-  & form {
-    height: 100%;
-    width: 100%;
-    line-height: 1.5;
-  }
-  & input {
-    font-size: 1.1rem;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    border-radius: 3px;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: none;
-    padding-left: 35px;
-    padding-right: 80px;
-  }
 `
 
 export const ContainerUsuario = styled.div`  
@@ -56,15 +41,13 @@ export const ContainerUsuario = styled.div`
   height: 64px;
   padding-right: 52px;
   & button {
+    cursor: pointer;
     color: white;
     font-size: 1.2rem;
   }
   & svg {
-    position: absolute;    
-    top: 7;
-    right: 0;
-    color: white;
-    stroke: white;
+    
+    fill: white;
   }
 `
 export const ContainerCategorias = styled.div`

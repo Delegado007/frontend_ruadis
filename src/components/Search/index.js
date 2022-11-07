@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { LogoSearch } from "../LogoSearch";
-import { SearchForm, ButtonSearch } from "./styles";
 import { getWhitSearch } from "../../api";
 import { useDispatch } from "react-redux";
 import { setFiles, setCount, setIsSearch, setValueInputSearch } from "../../slices/filesSlice";
 import { setPagination } from "../../slices/paginatioSlice";
-export const Search = () => {
+import { SearchForm, ButtonSearch, Form, Input } from "./styles";
+export const SearchInput = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch()
@@ -26,11 +26,11 @@ export const Search = () => {
   }
   return (
     <SearchForm>
-      <form onSubmit={handleSearch}>
+      <Form onSubmit={handleSearch}>
         <LogoSearch />
-        <input type="text" placeholder="Buscar por Título" id="search" onChange={({ target }) => setSearchValue(target.value)} />
+        <Input type="text" placeholder="Buscar por Título" id="search" onChange={({ target }) => setSearchValue(target.value)} />
         <ButtonSearch type="submit">Buscar</ButtonSearch>
-      </form>
+      </Form>
     </SearchForm>
   )
 }
