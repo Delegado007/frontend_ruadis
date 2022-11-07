@@ -17,66 +17,38 @@ export const Ul = styled.ul`
   border-radius: 0.6rem;
   background: #ffffff;
   box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
-  & li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.6rem 0;
-    font-size: 1.1rem;
-    width: 2.5rem; 
-    height: 2.5rem;
-    cursor: pointer;
-    &.active {
-      color: #ffffff;
-      background: #69B4F7;
-      font-weight: 600;
-      border: 1px solid #69B4F7;
-      border-radius: 5px;
-    }
-    &.svg-controller {
-      width: 1.8rem;
-    }
+  `
+
+export const Li = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.6rem 0;
+  font-size: 1.1rem;
+  width: 2.8rem; 
+  height: 2.5rem;
+  &.active {
+    color: #ffffff;
+    background: #69B4F7;
+    font-weight: 600;
+    border: 1px solid #69B4F7;
+    border-radius: 5px;
+  }
+  &.svg-controller {
+    width: 3rem;
   }
   & svg {
     fill: #69B4F7;
   }
-`
-
-
-
-
-
-
-
-
-
-export const ButtonPagination = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 3.5px;
-  height: 38px;
-  width: 38px;
-  & button {
-    background-color: #8BC5F9;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    width: 38px;
-    height: 100%;
-    border: solid 1px #272729;
-    color: #353540;
-    cursor: pointer;
-    &.active {
-      box-shadow: rgb(39, 39, 41) 0px 3px 7px inset;
-      background-color: #fff;
+  `
+export const Button = styled.button`
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  &:disabled{
+    cursor: auto;
+    & svg {
+      fill: #bababa;
     }
-  }
-  & button:disabled {
-    opacity: 0.35;
-  }
-  & a {    
-    height: 38px;
-    width: 38px;
   }
 `

@@ -10,9 +10,9 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
   }
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
 
   a {
     text-decoration: none;
@@ -38,12 +38,12 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0px;
     width: 100%;
     background-image: linear-gradient(to right top, #d9dde3, #dadde3, #dcdee2, #dddee2, #dedfe1);
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
   }
 
   #app {
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;    
   }
 `

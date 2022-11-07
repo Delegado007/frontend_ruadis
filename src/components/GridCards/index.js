@@ -7,7 +7,7 @@ export const GridCard = () => {
   const files = useSelector((state) => state.files.files, shallowEqual);
 
   return (
-    <ContainerGrid>
+    <ContainerGrid id="container_results">
       {files.map((item) => (
         <Card key={item.id} {...item}></Card>
       ))}
