@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { LogoSearch } from "../LogoSearch";
 import { getWhitSearch } from "../../api";
 import { useDispatch } from "react-redux";
-import { setFiles, setCount, setIsSearch, setValueInputSearch } from "../../slices/filesSlice";
-import { setPagination } from "../../slices/paginatioSlice";
+import { setFiles, setCount, setIsSearch, setValueInputSearch, setIsEmptyResult, setIsLoading } from "../../slices/filesSlice";
+import { setPagination, setActualPage } from "../../slices/paginatioSlice";
 import { SearchForm, ButtonSearch, Form, Input } from "./styles";
 export const SearchInput = () => {
 
@@ -17,12 +17,21 @@ export const SearchInput = () => {
       limit: 12
     }
     if (searchValue === undefined || searchValue === "") return true;
+    dispatch(setIsLoading(true))
     const searchResult = await getWhitSearch(searchValue, initPagination.offset, initPagination.limit);
+    if (searchResult.rows.length === 0) {
+      console.log(searchResult.rows.length === 0)
+      dispatch(setIsEmptyResult(true));
+    } else {
+      dispatch(setIsEmptyResult(false));
+    }
     dispatch(setFiles(searchResult.rows))
     dispatch(setCount(searchResult.count))
     dispatch(setPagination(initPagination))
+    dispatch(setActualPage(1))
     dispatch(setIsSearch(true))
     dispatch(setValueInputSearch(searchValue))
+    dispatch(setIsLoading(false))
   }
   return (
     <SearchForm>

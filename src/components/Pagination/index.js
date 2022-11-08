@@ -6,7 +6,7 @@ import { LastPage } from "../LastPage";
 import { FirstPage } from "../FirstPage"
 import { useSelector, useDispatch } from "react-redux";
 import { setPrevPage, setNextPage, setActualPage, setPagination } from "../../slices/paginatioSlice";
-import { fetchFiles, setFiles } from "../../slices/filesSlice";
+import { fetchFiles, setFiles, setIsLoading } from "../../slices/filesSlice";
 import { getWhitSearch, getFiles } from "../../api";
 
 export const Pagination = () => {
@@ -16,6 +16,7 @@ export const Pagination = () => {
   const { pagination: { paginationValues, actualPage, nextPage, prevPage }, files: { count, isSearch, valueInputSearch }, } = useSelector((state) => state)
 
   const getData = async (newOffset) => {
+    dispatch(setIsLoading(false))
     if (isSearch) {
       const newResults = await getWhitSearch(valueInputSearch, newOffset, 12);
       dispatch(setFiles(newResults.rows))
@@ -23,6 +24,7 @@ export const Pagination = () => {
       const newResults = await getFiles(newOffset, 12)
       dispatch(setFiles(newResults.rows))
     }
+    dispatch(setIsLoading(true))
   }
 
   const handleNexPage = async () => {
@@ -62,9 +64,14 @@ export const Pagination = () => {
   }
 
   useEffect(() => {
-    setTotalPages(Math.ceil(count / 12));
+    const totalPages = Math.ceil(count / 12)
+    setTotalPages(totalPages);
     if (totalPages === actualPage) {
-      dispatch(setNextPage(true))
+      if (totalPages !== 1) {
+        dispatch(setNextPage(false))
+      } else {
+        dispatch(setNextPage(true))
+      }
     } else {
       dispatch(setNextPage(false))
     }
