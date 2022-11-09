@@ -15,9 +15,11 @@ export const fetchFiles = createAsyncThunk(
   async (pagination, { dispatch }) => {
     dispatch(setIsLoading(true))
     const filesRes = await getFiles(pagination.offset, pagination.limit);
-    dispatch(setFiles(filesRes.rows))
-    dispatch(setCount(filesRes.count))
-    dispatch(setIsLoading(false))
+    setTimeout(() => {
+      dispatch(setFiles(filesRes.rows))
+      dispatch(setCount(filesRes.count))
+      dispatch(setIsLoading(false))
+    }, 1500)
   }
 )
 
