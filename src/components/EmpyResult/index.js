@@ -10,7 +10,7 @@ export const EmptyResult = () => {
         <h2>Upps! Ningún Resultado</h2>
       </ContainerEmptyResults>
       <ContainerButton>
-        <a href="http://localhost:3006/">
+        <a href="https://stellular-unicorn-408b27.netlify.app/">
           <button>Regresar</button>
         </a>
       </ContainerButton>
