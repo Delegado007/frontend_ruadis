@@ -39,9 +39,6 @@ export const App = () => {
         {isloading && <Loading />}
 
 
-
-
-
       </div>
     </>
   );

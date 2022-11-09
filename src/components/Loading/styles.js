@@ -15,6 +15,7 @@ export const ContainerFlex = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  min-width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
 `
@@ -23,7 +24,7 @@ export const SVG = styled.svg`
   display: none;
 `
 export const SpinnerContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 50%;
   position: relative;
   filter: url(#gooey);
@@ -31,8 +32,8 @@ export const SpinnerContainer = styled.div`
 
 export const SpinnerPath = styled.div`
   position: relative;
-  left: 25%;
-  top: 50%;
+  left: calc(50% - 5rem);
+  top: 40%;
   width: 10rem;
   height: 10rem;
   & > * {
