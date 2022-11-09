@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "webpack serve --config webpack.config.dev.js",
-    "build": "react-scripts build",
+    "build": "webpack --mode production --config webpack.config.dev.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
