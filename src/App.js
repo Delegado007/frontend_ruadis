@@ -16,7 +16,7 @@ export const App = () => {
   const isloading = useSelector((state) => state.files.isLoading)
   const isEmptyResults = useSelector((state) => state.files.isEmptyResult)
 
-
+  console.log(isloading)
   const dispatch = useDispatch();
 
   useEffect(() => {

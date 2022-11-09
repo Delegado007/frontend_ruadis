@@ -14,9 +14,9 @@ export const Pagination = () => {
   const dispatch = useDispatch();
 
   const { pagination: { paginationValues, actualPage, nextPage, prevPage }, files: { count, isSearch, valueInputSearch }, } = useSelector((state) => state)
-
+  console.log(paginationValues)
   const getData = async (newOffset) => {
-    dispatch(setIsLoading(false))
+    dispatch(setIsLoading(true))
     if (isSearch) {
       const newResults = await getWhitSearch(valueInputSearch, newOffset, 12);
       dispatch(setFiles(newResults.rows))
@@ -24,7 +24,7 @@ export const Pagination = () => {
       const newResults = await getFiles(newOffset, 12)
       dispatch(setFiles(newResults.rows))
     }
-    dispatch(setIsLoading(true))
+    dispatch(setIsLoading(false))
   }
 
   const handleNexPage = async () => {
@@ -67,11 +67,7 @@ export const Pagination = () => {
     const totalPages = Math.ceil(count / 12)
     setTotalPages(totalPages);
     if (totalPages === actualPage) {
-      if (totalPages !== 1) {
-        dispatch(setNextPage(false))
-      } else {
-        dispatch(setNextPage(true))
-      }
+      dispatch(setNextPage(true))
     } else {
       dispatch(setNextPage(false))
     }
@@ -79,6 +75,9 @@ export const Pagination = () => {
       dispatch(setPrevPage(true))
     } else {
       dispatch(setPrevPage(false))
+    }
+    if (totalPages === 1) {
+      dispatch(setNextPage(true))
     }
   }, [paginationValues, count])
 
