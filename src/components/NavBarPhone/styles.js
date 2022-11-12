@@ -86,3 +86,26 @@ export const ItemsInCarro = styled.div`
     font-weight: bold;
   }
 `
+
+export const ContainerOpenMenu = styled.div`
+  display: flex;  
+  background-color: #272729;
+  
+`
+
+export const Ul = styled.ul`
+  
+  margin: 14px 10px 14px 10px;
+  width: 100%;
+`
+
+export const Li = styled.li`
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white;
+  height: 38px;
+  font-size: 18px;
+  border-top: 1px solid #45494E;
+`

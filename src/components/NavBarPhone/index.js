@@ -10,6 +10,9 @@ import {
   Menu,
   Carrito,
   ItemsInCarro,
+  ContainerOpenMenu,
+  Ul,
+  Li,
 } from "./styles";
 export const NavBarPhone = () => {
   const [open, setOpen] = useState(false);
@@ -43,6 +46,18 @@ export const NavBarPhone = () => {
       <ContainerSearch>
         <SearchInput />
       </ContainerSearch>
+      {open &&
+        <ContainerOpenMenu>
+          <Ul>
+            <Li>Inicio</Li>
+            <Li>Escuelas</Li>
+            <Li>Institutos</Li>
+            <Li>Libros</Li>
+            <Li>Universidades</Li>
+            <Li>Varios</Li>
+          </Ul>
+        </ContainerOpenMenu>
+      }
     </ContainerNavBarPhone>
   )
 }
