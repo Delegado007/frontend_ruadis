@@ -19,7 +19,7 @@ export const NavBarDesktop = () => {
       <ContainerNav id="header">
         <ResizeContainerNav>
           <Logotipo>
-            <a href="http://localhost:3006/">
+            <a href="https://stellular-unicorn-408b27.netlify.app/">
               <Logo />
             </a>
           </Logotipo>

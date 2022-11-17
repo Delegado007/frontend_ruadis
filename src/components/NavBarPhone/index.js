@@ -30,7 +30,7 @@ export const NavBarPhone = () => {
           </button>
         </Menu>
         <ContainerLogo>
-          <a href="http://localhost:3006/">
+          <a href="https://stellular-unicorn-408b27.netlify.app/">
             <Logo />
           </a>
         </ContainerLogo>
