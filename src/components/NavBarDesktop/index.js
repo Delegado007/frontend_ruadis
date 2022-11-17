@@ -37,9 +37,10 @@ export const NavBarDesktop = () => {
         </ResizeContainerNav>
         <ContainerCategorias>
           <ListaMenu>
-            <li>Libros</li>
+            <li>Inicio</li>
             <li>Escuelas</li>
             <li>Institutos</li>
+            <li>Libros</li>
             <li>Universidades</li>
             <li>Varios</li>
           </ListaMenu>

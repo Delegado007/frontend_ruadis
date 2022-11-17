@@ -34,7 +34,7 @@ export const ContainerSearch = styled.div`
 export const Menu = styled.div`
   width: 25px;
   height: 20px;
-  position: fixed;
+  position: absolute;
   top: 14px;
   left: 14px;
   & div {    
@@ -104,8 +104,11 @@ export const Li = styled.li`
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: white;
+  color: #d4e5ff;
   height: 38px;
   font-size: 18px;
   border-top: 1px solid #45494E;
+  &:hover {
+    color: white;
+  }
 `

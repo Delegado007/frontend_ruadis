@@ -30,7 +30,7 @@ export const NavBarPhone = () => {
           </button>
         </Menu>
         <ContainerLogo>
-          <a>
+          <a href="http://localhost:3006/">
             <Logo />
           </a>
         </ContainerLogo>
