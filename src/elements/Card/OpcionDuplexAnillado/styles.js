@@ -1,51 +1,5 @@
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  height: 457px;
-  width: 320px;
-  margin: 14px auto;
-  background-color: white;
-  border-radius: 5px;
-`
-
-export const ImgContainer = styled.div`  
-  height: 200px;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 5px 5px 5px;
-  border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #f5f5f5;
-  /* background-color: #4f4f54; */
-  & img {
-    width: auto;
-    height: auto;
-    max-height: 200px;
-    max-width: 250px;
-    box-shadow: 0px 0px 24px 0px rgba(0,0,0.1),0px 10px 35px 0px rgba(0,0,0,0.2);
-  }
-`
-
-export const Titulo = styled.div`  
-  padding: 14px;
-  max-width: 292px; 
-  & p {   
-    max-width: 292px; 
-    font-size: 14px;
-    overflow: hidden;
-  }
-`
-export const ContainerPrecio = styled.div`
-  margin-bottom: 7px;
-  & span {
-    font-size: 20px;    
-  }
-`
-
-export const ContainerCarillas = styled.div`
-  padding-top: 7px; 
-`
-
 export const ContainerDuplex = styled.div`
   position: relative;
   padding-top: 7px;  
@@ -129,45 +83,4 @@ export const BottonSwitch = styled.label`
     box-shadow: 0px 0px 6px -2px #111;
     padding: 5px 0px;
   }
-`
-
-export const ContainerEncargar = styled.div`
-  height: 100%;
-  padding-top: 14px;
-  width: 292px;
-  display: flex;
-  justify-content: space-between;
-  & button {
-    width: 140px;
-    position: relative;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 20px;
-    color: white;
-    background-color: #00a650;
-    padding: 7px 10px 7px 50px;
-    box-shadow: 0px 0px 5px 0px rgba(222, 223, 225); 
-  }
-  & path {
-    fill: white;
-  }
-  & svg {
-    position: absolute;
-    stroke: white;
-  }
-  & div:nth-child(1) svg {
-    top: -5px;
-    left: 2px;
-  }
-  & div:nth-child(2) svg {
-    top: 6px;
-    left: 5px;
-  }
-  & label {
-    cursor: pointer;
-  }
-`
-
-export const ButtonRelative = styled.div`
-  
 `

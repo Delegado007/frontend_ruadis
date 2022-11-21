@@ -20,7 +20,6 @@ export const SearchInput = () => {
     dispatch(setIsLoading(true))
     const searchResult = await getWhitSearch(searchValue, initPagination.offset, initPagination.limit);
     if (searchResult.rows.length === 0) {
-      console.log(searchResult.rows.length === 0)
       dispatch(setIsEmptyResult(true));
     } else {
       dispatch(setIsEmptyResult(false));

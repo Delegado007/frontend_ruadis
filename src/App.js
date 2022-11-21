@@ -3,20 +3,27 @@ import { NavBarDesktop } from "./components/NavBarDesktop";
 import { GridCard } from "./components/GridCards";
 import { Pagination } from "./components/Pagination";
 import { EmptyResult } from "./components/EmpyResult";
+import { Home } from "./pages/home";
+import { Login } from "./pages/login";
+import { Register } from "./pages/register";
+import { ShopCart } from "./pages/shopCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFiles } from "./slices/filesSlice";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { NavBarPhone } from "./components/NavBarPhone";
 import { Loading } from "./components/Loading";
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 
 
 export const App = () => {
   const pagination = useSelector((state) => state.pagination.paginationValues)
-  const results = useSelector((state) => state.files.files)
-  const isloading = useSelector((state) => state.files.isLoading)
-  const isEmptyResults = useSelector((state) => state.files.isEmptyResult)
 
-  console.log(isloading)
+
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,23 +31,21 @@ export const App = () => {
   }, [dispatch])
   // console.log(isEmptyResults)
   return (
-    <>
+
+    <BrowserRouter>
       <GlobalStyles />
       <div id="app">
         <NavBarPhone />
         <NavBarDesktop />
-        {isEmptyResults && <EmptyResult />}
-        {results.length > 0 &&
-          <>
-            <GridCard />
-            <Pagination />
-          </>
-        }
-        {isloading && <Loading />}
-
-
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/shopcart' element={<ShopCart />} />
+        </Routes>
       </div>
-    </>
+    </BrowserRouter>
+
   );
 }
 

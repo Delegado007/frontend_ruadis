@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { OpcionDuplexAnillado } from "../../elements/Card/OpcionDuplexAnillado";
+import { NameFile } from "../../elements/Card/NameFile";
+import { OpcionesDeImpresion } from "../../elements/Card/OpcionesDeImpresion";
 import { WhatsappLogo } from "../WhatsappLogo";
 import { LogoCarrito } from "../LogoCarrito";
 import { useFormatPrices } from "../../hooks/usePriceFormat";
@@ -8,12 +11,7 @@ import {
   ImgContainer,
   Titulo,
   ContainerPrecio,
-  Name,
   ContainerCarillas,
-  ContainerOpciones,
-  ContainerDuplex,
-  BottonSwitch,
-  Input,
   ContainerEncargar,
   ButtonRelative,
 } from './styles';
@@ -25,14 +23,6 @@ export const Card = ({ id, image, name, prices, pages }) => {
   const [precioDoble, setPrecioDoble] = useState("")
 
   const { simple, doble } = prices;
-
-  const handleDuplex = (value) => {
-    setDuplex(value)
-  }
-
-  const handleAnillado = (value) => {
-    setAnillado(value)
-  }
 
   useEffect(() => {
     setPrecioSimple(useFormatPrices(simple));
@@ -70,21 +60,12 @@ export const Card = ({ id, image, name, prices, pages }) => {
               : precioDoble
           }</span>
         </ContainerPrecio>
-        <Name>
-          <p>{name}</p>
-        </Name>
+        <NameFile name={name} />
         <ContainerCarillas>
           <p>{`Carillas: ${pages}`}</p>
         </ContainerCarillas>
-        <ContainerOpciones>
-          <span>OPCIONES DE IMPRESION</span>
-        </ContainerOpciones>
-        <ContainerDuplex>
-          <Input type="checkbox" name="duplex" id={`duplex_mode_${id}`} onChange={({ target }) => handleDuplex(target.checked)} />
-          <BottonSwitch htmlFor={`duplex_mode_${id}`} data-on="Doble faz" data-off="Simple faz"></BottonSwitch>
-          <Input type="checkbox" name="anillado" id={`anillado_mode_${id}`} onChange={({ target }) => handleAnillado(target.checked)} />
-          <BottonSwitch htmlFor={`anillado_mode_${id}`} data-on="Anillado" data-off="Sin anillar"></BottonSwitch>
-        </ContainerDuplex>
+        <OpcionesDeImpresion />
+        <OpcionDuplexAnillado id={id} setDuplex={setDuplex} setAnillado={setAnillado} />
         <ContainerEncargar>
           <ButtonRelative>
             <button>

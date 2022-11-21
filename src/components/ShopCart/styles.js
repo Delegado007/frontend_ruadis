@@ -42,8 +42,28 @@ export const ContainerPrecio = styled.div`
   }
 `
 
+export const Name = styled.div`
+  height: 34px;
+  & p {
+    overflow: hidden;
+    max-height: 34px;
+  }
+`
+
 export const ContainerCarillas = styled.div`
   padding-top: 7px; 
+`
+
+export const ContainerOpciones = styled.div`
+padding: 7px 0;
+  & span {
+    
+    font-size: 13px;
+    color: white;
+    background-color: #69B4F7;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
 `
 
 export const ContainerDuplex = styled.div`

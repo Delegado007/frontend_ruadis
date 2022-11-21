@@ -37,6 +37,7 @@ export const ContainerUsuario = styled.div`
   position: relative;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 269px;  
   height: 64px;
   padding-right: 52px;

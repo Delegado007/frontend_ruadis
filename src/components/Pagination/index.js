@@ -14,7 +14,7 @@ export const Pagination = () => {
   const dispatch = useDispatch();
 
   const { pagination: { paginationValues, actualPage, nextPage, prevPage }, files: { count, isSearch, valueInputSearch }, } = useSelector((state) => state)
-  console.log(paginationValues)
+
   const getData = async (newOffset) => {
     dispatch(setIsLoading(true))
     if (isSearch) {
