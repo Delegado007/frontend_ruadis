@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ItemShopCart } from "../ItemShopCart";
+import { useNavigate } from "react-router-dom";
 import {
   ContainerShopCart,
   ContainerPurchase,
@@ -12,12 +13,8 @@ import {
 
 export const ShopCartComponent = () => {
   const [itemsCart, setItemCart] = useState([])
+  const navigate = useNavigate()
   const inCart = useSelector((state) => state.shopCart.cartItems)
-
-
-
-
-
   return (
     <>
       <ContainerShopCart>
@@ -34,7 +31,7 @@ export const ShopCartComponent = () => {
         </ContainerPurchase>
       </ContainerShopCart>
       <ContainerSeguirComprando>
-        <ButtonSeguirComparndo>
+        <ButtonSeguirComparndo onClick={() => navigate("/")}>
           Seguir Comprando
         </ButtonSeguirComparndo>
       </ContainerSeguirComprando>

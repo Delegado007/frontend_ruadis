@@ -31,9 +31,9 @@ export const NavBarPhone = () => {
           </button>
         </Menu>
         <ContainerLogo>
-          <Link to="/">
+          <a href="http://localhost:3006/">
             <Logo />
-          </Link>
+          </a>
         </ContainerLogo>
         <Carrito>
           <Link to="shopcart">
@@ -52,22 +52,22 @@ export const NavBarPhone = () => {
       {open &&
         <ContainerOpenMenu>
           <Ul>
-            <Link to="/">
+            <Link to="/" onClick={handleOpneMenu}>
               <Li>Inicio</Li>
             </Link>
-            <Link to="escuelas">
+            <Link to="escuelas" onClick={handleOpneMenu}>
               <Li>Escuelas</Li>
             </Link>
-            <Link to="institutos">
+            <Link to="institutos" onClick={handleOpneMenu}>
               <Li>Institutos</Li>
             </Link>
-            <Link to="libros">
+            <Link to="libros" onClick={handleOpneMenu}>
               <Li>Libros</Li>
             </Link>
-            <Link to="universidades">
+            <Link to="universidades" onClick={handleOpneMenu}>
               <Li>Universidades</Li>
             </Link>
-            <Link to="varios">
+            <Link to="varios" onClick={handleOpneMenu}>
               <Li>Varios</Li>
             </Link>
           </Ul>

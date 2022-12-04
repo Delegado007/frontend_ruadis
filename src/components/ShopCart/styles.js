@@ -37,6 +37,7 @@ export const Button = styled.button`
   color: white;
   font-size: 14px;
   margin: 0 7px;
+  cursor: pointer;
 `
 
 export const ButtonSeguirComparndo = styled.button`
@@ -47,6 +48,7 @@ export const ButtonSeguirComparndo = styled.button`
   color: white;
   font-size: 14px;
   margin: 7px auto;
+  cursor: pointer;
 `
 
 export const ContainerSeguirComprando = styled.div`

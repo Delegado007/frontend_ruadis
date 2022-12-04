@@ -5,13 +5,17 @@ import { useDispatch } from "react-redux";
 import { setFiles, setCount, setIsSearch, setValueInputSearch, setIsEmptyResult, setIsLoading } from "../../slices/filesSlice";
 import { setPagination, setActualPage } from "../../slices/paginatioSlice";
 import { SearchForm, ButtonSearch, Form, Input } from "./styles";
+import { useNavigate } from "react-router-dom";
+
 export const SearchInput = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const handleSearch = async (e) => {
     e.preventDefault()
+    navigate("/")
     const initPagination = {
       offset: 0,
       limit: 12

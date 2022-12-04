@@ -41,9 +41,10 @@ export const Card = ({ item }) => {
         return true;
       }
     }
-    dispatch(setCartItems(item))
+    const itemToAdd = { ...item, duplex: duplex, anillado: anillado }
+    dispatch(setCartItems(itemToAdd))
     let guardaEnStorage = [...itemsInCart]
-    guardaEnStorage.push(item)
+    guardaEnStorage.push(itemToAdd)
     window.localStorage.setItem("itemsInCard", JSON.stringify(guardaEnStorage))
   }
 

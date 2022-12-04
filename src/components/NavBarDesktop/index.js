@@ -20,9 +20,9 @@ export const NavBarDesktop = () => {
       <ContainerNav id="header">
         <ResizeContainerNav>
           <Logotipo>
-            <Link to="/">
+            <a href="http://localhost:3006/">
               <Logo />
-            </Link>
+            </a>
           </Logotipo>
           <ContainerSearch>
             <SearchInput />

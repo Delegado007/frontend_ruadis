@@ -5,7 +5,8 @@ import {
   Input,
 } from './styles';
 
-export const OpcionDuplexAnillado = ({ id, setDuplex, setAnillado }) => {
+export const OpcionDuplexAnillado = ({ id, anillado, duplex, setDuplex, setAnillado }) => {
+  console.log(anillado)
   const handleDuplex = (value) => {
     setDuplex(value)
   }
@@ -15,9 +16,9 @@ export const OpcionDuplexAnillado = ({ id, setDuplex, setAnillado }) => {
   }
   return (
     <ContainerDuplex>
-      <Input type="checkbox" name="duplex" id={`duplex_mode_${id}`} onChange={({ target }) => handleDuplex(target.checked)} />
+      <Input type="checkbox" name="duplex" id={`duplex_mode_${id}`} defaultChecked={duplex} onChange={({ target }) => handleDuplex(target.checked)} />
       <BottonSwitch htmlFor={`duplex_mode_${id}`} data-on="Doble faz" data-off="Simple faz"></BottonSwitch>
-      <Input type="checkbox" name="anillado" id={`anillado_mode_${id}`} onChange={({ target }) => handleAnillado(target.checked)} />
+      <Input type="checkbox" name="anillado" id={`anillado_mode_${id}`} defaultChecked={anillado} onChange={({ target }) => handleAnillado(target.checked)} />
       <BottonSwitch htmlFor={`anillado_mode_${id}`} data-on="Anillado" data-off="Sin anillar"></BottonSwitch>
     </ContainerDuplex>
   )
