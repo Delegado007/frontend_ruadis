@@ -5,7 +5,8 @@ export const ContainerDuplex = styled.div`
   padding-top: 7px;  
   display: flex;
   justify-content: space-between;
-  height: 30px;
+  height: ${({ theme }) => theme.heightSwhitch ? `${theme.heightSwhitch}` : '30px'};
+  flex-direction: ${({ theme }) => theme.heightSwhitch ? `${theme.fx_direction}` : 'row'};
   & span {
     font-size: 14px;
     line-height: 30px;    
@@ -26,7 +27,7 @@ export const Input = styled.input`
   width: 50px;
   height: 25px;
   opacity: 0;
-  position: absolute;
+  display:none;
   
   z-index: 1;
   margin: 0px;

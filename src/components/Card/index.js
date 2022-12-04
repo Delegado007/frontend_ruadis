@@ -6,6 +6,9 @@ import { WhatsappLogo } from "../WhatsappLogo";
 import { LogoCarrito } from "../LogoCarrito";
 import { useFormatPrices } from "../../hooks/usePriceFormat";
 import { usePricesAnillados } from "../../hooks/usePricesAnillados";
+import { setCartItems } from "../../slices/cartShop";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   CardContainer,
   ImgContainer,
@@ -16,21 +19,36 @@ import {
   ButtonRelative,
 } from './styles';
 
-export const Card = ({ id, image, name, prices, pages }) => {
+export const Card = ({ item }) => {
+
+  const itemsInCart = useSelector((state) => state.shopCart.cartItems)
   const [duplex, setDuplex] = useState(false)
   const [anillado, setAnillado] = useState(false)
   const [precioSimple, setPrecioSimple] = useState("")
   const [precioDoble, setPrecioDoble] = useState("")
-
-  const { simple, doble } = prices;
+  const dispatch = useDispatch()
+  const { simple, doble } = item.prices;
 
   useEffect(() => {
     setPrecioSimple(useFormatPrices(simple));
     setPrecioDoble(useFormatPrices(doble));
   }, [])
 
+
+  const handleEncargar = (e) => {
+    for (let index = 0; index < itemsInCart.length; index++) {
+      if (item.id === itemsInCart[index].id) {
+        return true;
+      }
+    }
+    dispatch(setCartItems(item))
+    let guardaEnStorage = [...itemsInCart]
+    guardaEnStorage.push(item)
+    window.localStorage.setItem("itemsInCard", JSON.stringify(guardaEnStorage))
+  }
+
   useEffect(() => {
-    const precioAnillado = usePricesAnillados(pages, duplex)
+    const precioAnillado = usePricesAnillados(item.pages, duplex)
     if (anillado && duplex) {
       let newPrice = precioAnillado + doble;
       setPrecioDoble(useFormatPrices(newPrice));
@@ -50,7 +68,7 @@ export const Card = ({ id, image, name, prices, pages }) => {
   return (
     <CardContainer>
       <ImgContainer>
-        <img src={`./../../assets/firstPageFiles/${image}`} />
+        <img src={`./../../assets/firstPageFiles/${item.image}`} />
       </ImgContainer>
       <Titulo>
         <ContainerPrecio>
@@ -60,12 +78,12 @@ export const Card = ({ id, image, name, prices, pages }) => {
               : precioDoble
           }</span>
         </ContainerPrecio>
-        <NameFile name={name} />
+        <NameFile name={item.name} />
         <ContainerCarillas>
-          <p>{`Carillas: ${pages}`}</p>
+          <p>{`Carillas: ${item.pages}`}</p>
         </ContainerCarillas>
         <OpcionesDeImpresion />
-        <OpcionDuplexAnillado id={id} setDuplex={setDuplex} setAnillado={setAnillado} />
+        <OpcionDuplexAnillado id={item.id} setDuplex={setDuplex} setAnillado={setAnillado} />
         <ContainerEncargar>
           <ButtonRelative>
             <button>
@@ -74,9 +92,9 @@ export const Card = ({ id, image, name, prices, pages }) => {
             </button>
           </ButtonRelative>
           <ButtonRelative>
-            <button>
+            <button onClick={(e) => handleEncargar(e)}>
               <LogoCarrito />
-              <label>Agregar</label>
+              <label className={`item_${item.id}`}>Agregar</label>
             </button>
           </ButtonRelative>
         </ContainerEncargar>

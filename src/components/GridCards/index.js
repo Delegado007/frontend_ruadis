@@ -9,7 +9,7 @@ export const GridCard = () => {
   return (
     <ContainerGrid id="container_results">
       {files.map((item) => (
-        <Card key={item.id} {...item}></Card>
+        <Card key={item.id} item={item}></Card>
       ))}
     </ContainerGrid>
   )

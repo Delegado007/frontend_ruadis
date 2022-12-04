@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SearchInput } from './../Search'
 import { Logo } from './../Logo'
 import { LogoCarrito } from './../LogoCarrito'
+import { Router, Link } from "react-router-dom";
 import {
   ContainerNavBarPhone,
   ContainerMenu,
@@ -30,17 +31,19 @@ export const NavBarPhone = () => {
           </button>
         </Menu>
         <ContainerLogo>
-          <a href="https://stellular-unicorn-408b27.netlify.app/">
+          <Link to="/">
             <Logo />
-          </a>
+          </Link>
         </ContainerLogo>
         <Carrito>
-          <button>
-            <LogoCarrito />
-            <ItemsInCarro>
-              <p>2</p>
-            </ItemsInCarro>
-          </button>
+          <Link to="shopcart">
+            <button>
+              <LogoCarrito />
+              <ItemsInCarro>
+                <p>2</p>
+              </ItemsInCarro>
+            </button>
+          </Link>
         </Carrito>
       </ContainerMenu>
       <ContainerSearch>
@@ -49,12 +52,24 @@ export const NavBarPhone = () => {
       {open &&
         <ContainerOpenMenu>
           <Ul>
-            <Li>Inicio</Li>
-            <Li>Escuelas</Li>
-            <Li>Institutos</Li>
-            <Li>Libros</Li>
-            <Li>Universidades</Li>
-            <Li>Varios</Li>
+            <Link to="/">
+              <Li>Inicio</Li>
+            </Link>
+            <Link to="escuelas">
+              <Li>Escuelas</Li>
+            </Link>
+            <Link to="institutos">
+              <Li>Institutos</Li>
+            </Link>
+            <Link to="libros">
+              <Li>Libros</Li>
+            </Link>
+            <Link to="universidades">
+              <Li>Universidades</Li>
+            </Link>
+            <Link to="varios">
+              <Li>Varios</Li>
+            </Link>
           </Ul>
         </ContainerOpenMenu>
       }
