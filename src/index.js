@@ -6,8 +6,6 @@ import { compose, applyMiddleware, legacy_createStore as createStore } from 'red
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducers/rootRedcuer';
 
-
-
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const composeEnhancers = composeAlt(applyMiddleware(thunk))
 

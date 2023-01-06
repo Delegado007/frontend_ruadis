@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ItemShopCart } from "../ItemShopCart";
+import { useFormatPrices } from "./../../hooks/usePriceFormat"
 import { useNavigate } from "react-router-dom";
 import {
   ContainerShopCart,
@@ -12,9 +13,18 @@ import {
 } from './styles';
 
 export const ShopCartComponent = () => {
-  const [itemsCart, setItemCart] = useState([])
+  const [total, setTotal] = useState(0)
   const navigate = useNavigate()
   const inCart = useSelector((state) => state.shopCart.cartItems)
+  const priceWhitFormat = useFormatPrices(total)
+  useEffect(() => {
+    let subTotal = 0
+    inCart.map((elem) => {
+      subTotal = subTotal + elem.priceToBuy
+    })
+    setTotal(subTotal)
+  }, [inCart])
+
   return (
     <>
       <ContainerShopCart>
@@ -23,7 +33,7 @@ export const ShopCartComponent = () => {
         ))
         }
         <ContainerPriceTotal>
-          <p>Total: $4.500,50</p>
+          <p>{`Total: ${priceWhitFormat}`}</p>
         </ContainerPriceTotal>
         <ContainerPurchase>
           <Button>Pagar con MP</Button>

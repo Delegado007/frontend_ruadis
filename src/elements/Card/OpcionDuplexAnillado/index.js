@@ -6,7 +6,6 @@ import {
 } from './styles';
 
 export const OpcionDuplexAnillado = ({ id, anillado, duplex, setDuplex, setAnillado }) => {
-  console.log(anillado)
   const handleDuplex = (value) => {
     setDuplex(value)
   }

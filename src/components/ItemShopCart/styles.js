@@ -43,5 +43,11 @@ export const ButtonDelete = styled.button`
   height: 23px;
 `
 
+export const Span = styled.span`
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  /* font-weight: bold; */
+`
 
 

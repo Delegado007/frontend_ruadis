@@ -31,6 +31,10 @@ export const usePricesAnillados = (numPages, duplex) => {
       return 330;
     case paginas > 400 && paginas <= 500:
       return 350;
+    case paginas > 500 && paginas <= 560:
+      return 480;
+    case paginas > 560 && paginas <= 620:
+      return 520;
     default:
       return 0;
       break;

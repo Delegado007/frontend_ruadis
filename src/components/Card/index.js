@@ -4,11 +4,11 @@ import { NameFile } from "../../elements/Card/NameFile";
 import { OpcionesDeImpresion } from "../../elements/Card/OpcionesDeImpresion";
 import { WhatsappLogo } from "../WhatsappLogo";
 import { LogoCarrito } from "../LogoCarrito";
+import { itemAgregado, itemYaExistente } from "../../hooks/useToast";
 import { useFormatPrices } from "../../hooks/usePriceFormat";
-import { usePricesAnillados } from "../../hooks/usePricesAnillados";
 import { setCartItems } from "../../slices/cartShop";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useCalculatedPrice } from "../../hooks/useCalculatedPrice";
 import {
   CardContainer,
   ImgContainer,
@@ -24,47 +24,30 @@ export const Card = ({ item }) => {
   const itemsInCart = useSelector((state) => state.shopCart.cartItems)
   const [duplex, setDuplex] = useState(false)
   const [anillado, setAnillado] = useState(false)
-  const [precioSimple, setPrecioSimple] = useState("")
-  const [precioDoble, setPrecioDoble] = useState("")
   const dispatch = useDispatch()
-  const { simple, doble } = item.prices;
 
-  useEffect(() => {
-    setPrecioSimple(useFormatPrices(simple));
-    setPrecioDoble(useFormatPrices(doble));
-  }, [])
-
+  const { precioSimple, precioDoble } = useCalculatedPrice(
+    item.pages,
+    item.prices,
+    duplex, anillado
+  )
+  const priceWhitFormatSimple = useFormatPrices(precioSimple)
+  const priceWhitFormatDoble = useFormatPrices(precioDoble)
 
   const handleEncargar = (e) => {
     for (let index = 0; index < itemsInCart.length; index++) {
       if (item.id === itemsInCart[index].id) {
+        itemYaExistente("El item ya existe en el carrito")
         return true;
       }
     }
+    itemAgregado("Agregado correctamente")
     const itemToAdd = { ...item, duplex: duplex, anillado: anillado }
     dispatch(setCartItems(itemToAdd))
     let guardaEnStorage = [...itemsInCart]
     guardaEnStorage.push(itemToAdd)
     window.localStorage.setItem("itemsInCard", JSON.stringify(guardaEnStorage))
   }
-
-  useEffect(() => {
-    const precioAnillado = usePricesAnillados(item.pages, duplex)
-    if (anillado && duplex) {
-      let newPrice = precioAnillado + doble;
-      setPrecioDoble(useFormatPrices(newPrice));
-    }
-    if (!anillado && duplex) {
-      setPrecioDoble(useFormatPrices(doble));
-    }
-    if (anillado && !duplex) {
-      let newPrice = precioAnillado + simple;
-      setPrecioSimple(useFormatPrices(newPrice));
-    }
-    if (!anillado && !duplex) {
-      setPrecioSimple(useFormatPrices(simple));
-    }
-  }, [duplex, anillado])
 
   return (
     <CardContainer>
@@ -75,8 +58,8 @@ export const Card = ({ item }) => {
         <ContainerPrecio>
           <span>{
             !duplex
-              ? precioSimple
-              : precioDoble
+              ? priceWhitFormatSimple
+              : priceWhitFormatDoble
           }</span>
         </ContainerPrecio>
         <NameFile name={item.name} />

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: [],
+  totalAmount: 0,
 }
 
 export const storeCartSlice = createSlice({
@@ -16,9 +17,19 @@ export const storeCartSlice = createSlice({
       ...state,
       cartItems: state.cartItems.filter(item => item.id !== action.payload.id)
     }),
+    setUpdateItem: (state, action) => ({
+      ...state,
+      cartItems: state.cartItems.map(
+        (content) => content.id === action.payload.id ? { ...content, priceToBuy: action.payload.priceToBuy }
+          : content
+      )
+    }),
+    setTotalAmount: (state, action) => {
+      state.totalAmount = action.payload
+    },
   }
 })
 
-export const { setCartItems, setDeleteItem } = storeCartSlice.actions;
+export const { setCartItems, setDeleteItem, setTotalAmount, setUpdateItem } = storeCartSlice.actions;
 
 export default storeCartSlice.reducer;
