@@ -3,7 +3,7 @@ import { NavBarDesktop } from "./components/NavBarDesktop";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
-import { ShopCart } from "./pages/shopcart";
+import { ShopCart } from "./pages/shopCart";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFiles } from "./slices/filesSlice";
 import { setCartItems } from "./slices/cartShop";
